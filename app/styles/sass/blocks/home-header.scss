@@ -6,6 +6,10 @@ body, html {
     background-color: $deep;
     height: 100%;
     color: #fff;
+    padding-top: $size;
+    &__content {
+        height: 100%;
+    }
 }
 
 .top-line {
@@ -104,5 +108,187 @@ body, html {
     transition: background .25s ease-out;
     &:hover {
         background-color: $accent;
+    }
+}
+
+// ASIDE
+
+.home-aside {
+    background-color: $dark;
+    width: $size;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    padding-top: $size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    &__decoration {
+        flex: 1 0 0;
+        background-image: url(../images/dist/decoration.svg);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__soc {
+        flex: 1 0 0;
+    }
+    &__share-icon {
+        background-color: $accent;
+        width: $size;
+        flex: 0 0 $size;
+        background-image: url(../images/dist/share-solid.svg);
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.soc-item  {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(#fff, $border-opacity);
+    margin-top: -1px;
+    transition: background .5s ease-out;
+    &:not(:last-child) {
+        border-bottom: 1px solid transparent;        
+    }
+    img {
+        width: 15px;
+        height: auto;
+        max-height: 15px;
+        opacity: .3;
+        transition: opacity .5s ease-out;
+    }
+    &:hover {
+        background-color: $accent;
+        img {
+            opacity: 1;
+        }
+    }
+}
+
+// SLIDER
+
+.slider-container {
+    padding-left: $size;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-bottom {
+    position: absolute;
+    left: $size;
+    bottom: 0;
+    height: $size;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    width: calc(75% - #{$size});
+}
+
+.slider-share {
+    flex: 0 1 auto;
+    &__items {
+        display: flex;
+        position: relative;
+        bottom: -.5px;
+    }
+    &__item {
+        width: $size;
+        height: $size;
+        border: none;
+        background-color: $dark;
+        margin-left: -.5px;
+        &:not(:last-child) {
+            border-right: 1px solid rgba(#fff, $border-opacity);
+        }
+        &:last-child {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 3px;
+                height: 100%;
+                background-color: $accent;
+            }
+        }
+    }
+}
+
+.slider-pagination {
+    flex: 0 0 140px;
+}
+.slider-scrollbar {
+    flex: 1 0 0;
+}
+.slider-navigation {
+    flex: 0 0 140px;
+}
+
+.slider-img {
+    height: 100%;
+    width: 75%;
+    overflow: hidden;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#000, .45);
+        z-index: 2;
+    }
+    &__slide {
+        height: 100%;
+        overflow: hidden;
+    }
+    &__bg {
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+.slider-text {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    &__slide {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &__content {
+        text-align: right;
+        padding-right: 22%;
+    }
+    &__heading {
+        text-transform: uppercase;
+        font-size: 60px;
+        line-height: 120%;
+        font-family: oswald-vh, sans-serif;
+        max-width: 780px;
+        float: right;
+        span {
+            color: $accent;
+            white-space: nowrap;
+        }
+    }
+    &__descr {
+        float: right;
+        max-width: 500px;
+        font-size: 13px;
+        font-weight: 500;
+        margin-top: 15px;
     }
 }
