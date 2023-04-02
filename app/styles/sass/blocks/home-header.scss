@@ -224,16 +224,6 @@ body, html {
     }
 }
 
-.slider-pagination {
-    flex: 0 0 140px;
-}
-.slider-scrollbar {
-    flex: 1 0 0;
-}
-.slider-navigation {
-    flex: 0 0 140px;
-}
-
 .slider-img {
     height: 100%;
     width: 75%;
@@ -270,7 +260,7 @@ body, html {
     }
     &__content {
         text-align: right;
-        padding-right: 22%;
+        padding-right: 24%;
     }
     &__heading {
         text-transform: uppercase;
@@ -296,5 +286,127 @@ body, html {
     &__button {
         float: right;
         clear: both;
+    }
+}
+
+.slider-pagination {
+    flex: 0 0 140px;
+    display: flex;
+    justify-content: center;
+    height: $size;
+    align-items: center;
+    position: relative;
+    .swiper-pagination-bullet {
+        width: 6px;
+        height: 6px;
+        opacity: 1;
+        background-color: #fff;
+        margin: 0 7.5px;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $accent;
+        position: relative;
+        &::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            border: 1px solid $accent;
+            position: absolute;
+            border-radius: 100%;
+            left: -4px;
+            top: -4px;
+        }
+    }
+}
+
+.slider-scrollbar {
+    flex: 1 0 0;
+    .swiper-scrollbar {
+        height: 1px;
+        background-color: rgba(#fff, .2);
+    }
+    .swiper-scrollbar-drag {
+        height: 3px;
+        background-color: $accent;
+        top: -1px;
+    }
+}
+
+.slider-navigation {
+    flex: 0 0 140px;
+    position: relative;
+    left: 10px;
+    &__container {
+        max-width: 70px;
+        position: relative;
+        margin: auto;
+    }
+    .swiper-button-prev, .swiper-button-next {
+        width: 32px;
+        height: 32px;
+        color: $accent;
+        background-color: #3c3c3c;
+        border-radius: 100%;
+        border: 2px solid $accent;
+        top: 5px;
+        &::after {
+            font-size: 10px;
+        }
+    }
+    .swiper-button-disabled {
+        opacity: 1;
+        color: #8a8a8a;
+        border-color: #8a8a8a;
+    }
+    .swiper-button-prev {
+        left: 0;
+    }
+    .swiper-button-next {
+        right: 0;
+    }
+}
+
+.slider-gear {
+    width: 470px;
+    height: 470px;
+    position: absolute;
+    background-image: url(../images/dist/gear.svg);
+    background-size: cover;
+    background-position: center;
+    top: 50%;
+    margin-top: -270px;
+    z-index: 2;
+    right: calc(23.8% - 235px);
+}
+
+.slider-pagination-count {
+    position: absolute;
+    right: 20px;
+    z-index: 100;
+    width: 120px;
+    height: 80px;
+    top: 30px;
+    font-family: oswald-vh, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    .current {
+        font-size: 40px;
+        color: $accent;
+        display: inline-block;
+        min-width: 42px;
+    }
+}
+
+.slider-pagination-current {
+    right: 40px;
+    bottom: 10px;
+    position: absolute;
+    font-size: 100px;
+    font-family: oswald-vh, sans-serif;
+    color: $deep;
+    -webkit-text-stroke: 1px #7f7f7f;
+    &__dot {
+        color: $accent;
+        -webkit-text-stroke: 1px transparent;
     }
 }
