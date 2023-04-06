@@ -107,7 +107,8 @@ body, html {
     }
     @include media-breakpoint-down(md) {
         flex: 1 0 0;
-    }&__text {
+    }
+    &__text {
         @include media-breakpoint-down(md) {
             display: none;
         }
@@ -171,9 +172,15 @@ body, html {
         width: 100%;
         background-repeat: no-repeat;
         background-position: center;
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
     }
     &__soc {
         flex: 1 0 0;
+        @include media-breakpoint-down(md) {
+            margin-top: 40px;
+        }
     }
     &__share-icon {
         background-color: $accent;
@@ -323,6 +330,9 @@ body, html {
     &__content {
         text-align: right;
         padding-right: 24%;
+        @include media-breakpoint-down(md) {
+            padding-left: 19px;
+        }
     }
     &__heading {
         text-transform: uppercase;
@@ -446,6 +456,9 @@ body, html {
     .swiper-button-next {
         right: 0;
     }
+    @include media-breakpoint-down(md) {
+        left: -20px;
+    }
 }
 
 .slider-gear {
@@ -501,5 +514,10 @@ body, html {
     &__dot {
         color: $accent;
         -webkit-text-stroke: 1px transparent;
+    }
+    @include media-breakpoint-down(md) {
+        font-size: 20px;
+        bottom: 0;
+        right: 20px;
     }
 }
